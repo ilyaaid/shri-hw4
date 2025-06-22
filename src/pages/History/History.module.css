@@ -1,0 +1,26 @@
+.inner {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.empty {
+  padding: 200px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  color: #cb81ff;
+}
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

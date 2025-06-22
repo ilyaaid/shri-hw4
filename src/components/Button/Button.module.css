@@ -1,0 +1,41 @@
+.main {
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  padding: 20px 27px;
+  font-size: 35px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.main:hover {
+  opacity: 0.8;
+}
+
+.main:active {
+  opacity: inherit;
+}
+
+.main-active {
+  background-color: #2ae881;
+  color: #201b10;
+}
+
+.main-unactive {
+  background-color: #c0c0c0;
+  color: #787878;
+}
+
+.main-unactive:hover {
+  opacity: inherit;
+}
+
+.main-download {
+  background-color: #fce300;
+  color: #201b10;
+}
+
+.main-clear {
+  background-color: #201b10;
+  color: #ffffff;
+}

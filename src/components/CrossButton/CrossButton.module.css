@@ -1,0 +1,8 @@
+.default {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 19px;
+  background-color: #201b10;
+  cursor: pointer;
+}

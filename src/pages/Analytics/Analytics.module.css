@@ -1,0 +1,62 @@
+.inner {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.upload {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #201b10;
+  text-align: center;
+}
+
+.title span {
+  font-weight: 700;
+}
+
+.zone {
+  padding: 60px;
+  background-color: #eacdff;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.zone_active {
+  background-color: #d4fae6;
+}
+
+.zone_active * {
+  pointer-events: none;
+}
+
+.zone_loaded {
+  background-color: transparent;
+  border: 1px solid #201b10;
+}
+
+.zone_error {
+  background-color: transparent;
+  border: 1px solid #ff5f00;
+}
+
+.zone_parsing {
+  background-color: transparent;
+  border: 1px solid #201b10;
+}
+
+.zone__input {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

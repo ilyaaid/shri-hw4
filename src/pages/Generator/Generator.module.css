@@ -1,0 +1,19 @@
+.inner {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.upload {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  color: #201b10;
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+.empty {
+  padding: 200px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  color: #cb81ff;
+}
+
+.result {
+  display: grid;
+  row-gap: 10px;
+  column-gap: 30px;
+}
