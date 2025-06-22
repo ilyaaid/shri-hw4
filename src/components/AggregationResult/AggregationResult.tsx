@@ -8,14 +8,18 @@ type AggregationResultProps = React.HTMLAttributes<HTMLDivElement> & {
   stats: AggregationStatsModel | null;
   columns: number;
   itemColor?: string;
+  emptyMessage?: string;
 };
 
-const AggregationResult: React.FC<AggregationResultProps> = ({ stats, columns, itemColor, ...other }) => {
+const AggregationResult: React.FC<AggregationResultProps> = ({ stats, columns, itemColor, emptyMessage, ...other }) => {
+  console.log(stats);
   const classes = classNames({ [styles.empty]: !stats, [styles.result]: stats });
   return (
     <div className={classes} style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }} {...other}>
       {!stats
-        ? 'Здесь появятся хайлайты'
+        ? emptyMessage
+          ? emptyMessage
+          : 'Здесь появятся хайлайты'
         : Object.keys(stats).map((key) => {
             const newKey = key as keyof AggregationStatsModel;
             const desc = aggregationStatsParamToDesc(newKey);

@@ -7,6 +7,7 @@
   align-items: center;
   z-index: 1000;
   padding: 100px 0;
+  overflow-y: scroll;
 }
 
 .content {
@@ -15,7 +16,7 @@
   padding: 20px;
   border-radius: 45px;
   max-height: calc(100vh - 200px);
-  overflow-y: scroll;
+  overflow-y: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
 }

@@ -11,7 +11,7 @@ type HistoryRowProps = React.HTMLAttributes<HTMLDivElement> & {
   date: string;
   success: boolean;
   onDelete: (id: string) => void;
-  onRowClick: () => void;
+  onRowClick?: () => void;
 };
 
 const HistoryRow: React.FC<HistoryRowProps> = ({ id, filename, date, success, onDelete, onRowClick }) => {

@@ -1,7 +1,7 @@
 import type { AggregationStatsModel } from '@models/AggregationStats';
 import { create } from 'zustand';
 
-interface HistoryItem {
+export interface HistoryItem {
   id: string;
   filename: string;
   date: string;

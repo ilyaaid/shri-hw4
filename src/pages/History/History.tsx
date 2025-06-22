@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './History.module.css';
-import { useHistoryAnalyticsStore } from '@store/historyAnalyticsStore/useHistoryAnalyticsStore';
+import { useHistoryAnalyticsStore, type HistoryItem } from '@store/historyAnalyticsStore/useHistoryAnalyticsStore';
 import HistoryRow from '@components/HistoryRow/HistoryRow';
 import Button from '@components/Button/Button';
 import { NavLink } from 'react-router';
@@ -19,11 +19,13 @@ function getFormattedDate(rawDate: string) {
 }
 
 const History: React.FC<React.HTMLAttributes<HTMLDivElement>> = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [selectedItem, setSelectedItem] = React.useState<HistoryItem | null>(null);
+
+  // const [isModalOpen, setIsModalOpen] = React.useState(false);
   const { history, removeItem, clear } = useHistoryAnalyticsStore();
 
-  const handleHistoryRowClick = React.useCallback(() => {
-    setIsModalOpen(true);
+  const handleHistoryRowClick = React.useCallback((item: HistoryItem) => {
+    setSelectedItem(item);
   }, []);
 
   const handleDeleteItem = React.useCallback(
@@ -44,23 +46,28 @@ const History: React.FC<React.HTMLAttributes<HTMLDivElement>> = () => {
           <div className={styles.empty}>История пуста</div>
         ) : (
           <div className={styles.upload}>
-            {history.map((item) => {
-              return (
-                <React.Fragment key={item.id}>
-                  <HistoryRow
-                    id={item.id}
-                    date={getFormattedDate(item.date)}
-                    filename={item.filename}
-                    success={item.success}
-                    onDelete={handleDeleteItem}
-                    onRowClick={handleHistoryRowClick}
-                  />
-                  <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <AggregationResult stats={item.result} columns={1} itemColor="#EACDFF" />
-                  </Modal>
-                </React.Fragment>
-              );
-            })}
+            {history.map((item) => (
+              <HistoryRow
+                key={item.id}
+                id={item.id}
+                date={getFormattedDate(item.date)}
+                filename={item.filename}
+                success={item.success}
+                onDelete={handleDeleteItem}
+                onRowClick={() => handleHistoryRowClick(item)}
+              />
+            ))}
+
+            {selectedItem && (
+              <Modal isOpen={true} onClose={() => setSelectedItem(null)}>
+                <AggregationResult
+                  emptyMessage="При анализе была обнаружена ошибка"
+                  stats={selectedItem.result}
+                  columns={1}
+                  itemColor="#EACDFF"
+                />
+              </Modal>
+            )}
           </div>
         )}
 
